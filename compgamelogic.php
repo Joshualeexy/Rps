@@ -55,7 +55,6 @@ if (isset($_POST['submit'])) {
     } else {
         $page_err = "<script> alert('YOU SHOULD START THE GAME BEFORE PLAYING')</script>";
     }
-    
 }
 
 

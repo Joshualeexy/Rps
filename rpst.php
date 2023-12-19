@@ -55,17 +55,17 @@ if (isset($_POST['logout'])) {
 
 
 
-    <form action="" method="post">
-      <button type="submit" name="uservscomp" class="choice">
-        <span>player 1</span>
-        <span>vs</span>
-        <span>computer </span>
-      </button>
-    </form>
+      <form action="" method="post">
+        <button type="submit" name="uservscomp" class="choice">
+          <span>player 1</span>
+          <span>vs</span>
+          <span>computer </span>
+        </button>
+      </form>
 
-    <form action="" method="post">
-      <button class="choice logout" id="reset" type="submit" name="logout">LOGOUT</button>
-    </form>
+      <form action="" method="post">
+        <button class="choice logout" id="reset" type="submit" name="logout">LOGOUT</button>
+      </form>
   </div>
 </body>
 
