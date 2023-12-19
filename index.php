@@ -15,7 +15,7 @@ if (isset($_SESSION['id'])) {
 
         if (!empty($_POST['password'])) {
             $password = htmlspecialchars($_POST['password']);
-            $hashedpassword = password_hash($password,PASSWORD_DEFAULT);
+            $hashedpassword = password_hash($password, PASSWORD_DEFAULT);
         } else {
             $_SESSION['passerr'] = true;
         }
@@ -29,7 +29,7 @@ if (isset($_SESSION['id'])) {
                 $result = mysqli_fetch_assoc($result);
                 if (password_verify($password, $result['password'])) {
                     $sql = "UPDATE users SET online_status = '1' WHERE email = '$email'";
-                     mysqli_query($con, $sql);
+                    mysqli_query($con, $sql);
                     $_SESSION['actionN'] = 'control';
                     $_SESSION['game_status'] = 'NOT RUNNING';
                     $_SESSION['username'] =   ucfirst($result['usename']);
@@ -43,18 +43,18 @@ if (isset($_SESSION['id'])) {
             } else {
 
                 $sql = "INSERT INTO users (usename,email,password,date,online_status) VALUES('$username','$email','$hashedpassword','$date','1')";
-                if(mysqli_query($con, $sql)){
-                $uid = mysqli_insert_id($con);
-                $_SESSION['actionN'] = 'control';
-                $_SESSION['game_status'] = 'NOT RUNNING';
-                $_SESSION['username'] =  ucfirst($username);
-                $_SESSION['id'] = $uid;
-                $_SESSION['email'] = $email;
-                $_SESSION['score'] = 0;
-                $_SESSION['action'] = 'START GAME';
-                
-                header("location:rpst.php");
-            }
+                if (mysqli_query($con, $sql)) {
+                    $uid = mysqli_insert_id($con);
+                    $_SESSION['actionN'] = 'control';
+                    $_SESSION['game_status'] = 'NOT RUNNING';
+                    $_SESSION['username'] =  ucfirst($username);
+                    $_SESSION['id'] = $uid;
+                    $_SESSION['email'] = $email;
+                    $_SESSION['score'] = 0;
+                    $_SESSION['action'] = 'START GAME';
+
+                    header("location:rpst.php");
+                }
             }
         }
     }
@@ -95,7 +95,13 @@ if (isset($_SESSION['id'])) {
 
                                         ?></label>
             <br>
+            <strong style="color:black;text-transform:capitalize">
+                Your username is the left side of your email seperated by the @ symbol
+            </strong>
             <br>
+            <br>
+
+
             <input type="password" placeholder="password" name="password"><br>
             <label for="" class="err"><?php
                                         if (isset($_SESSION['passerr'])) {

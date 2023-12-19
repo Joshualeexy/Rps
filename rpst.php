@@ -3,7 +3,7 @@ session_start();
 include 'conn.php';
 
 if (!isset($_SESSION['id'])) {
-  header('location:regrps.php');
+  header('location:index.php');
 } elseif (isset($_SESSION['game_status']) && $_SESSION['game_status'] == 'RUNNING') {
   header('location:rps.php');
 }
@@ -16,15 +16,13 @@ if (isset($_POST['uservscomp'])) {
   header("location: rps.php");
 }
 
-if (isset($_POST['uservsuser'])) {
-  header("location: chooseopponent.php");
-}
+
 if (isset($_POST['logout'])) {
   $id = $_SESSION['id'];
   $sql = "UPDATE users SET online_status = '0' WHERE id = '$id'";
   mysqli_query($con, $sql);
   session_unset();
-  header('location:regrps.php');
+  header('location:index.php');
 }
 
 ?>
@@ -55,13 +53,7 @@ if (isset($_POST['logout'])) {
     <h2>CHOOSE YOUR GAME STYLE</h2>
     <form action="" method="post">
 
-      <button type="submit" name="uservsuser" class="choice">
-          <span>player 1</span>
-          <span>vs</span>
-          <span>player 2</span>
 
-      </button>
-    </form>
 
     <form action="" method="post">
       <button type="submit" name="uservscomp" class="choice">

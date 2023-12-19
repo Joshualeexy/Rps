@@ -5,7 +5,7 @@ include 'conn.php';
 //checking if user is logged inor not then refirect to login page if user is not loggedd in
 
 if (!isset($_SESSION['id'])) {
-    header('location:regrps.php');
+    header('location:index.php');
 }
 
 // define and initialize empty variables
@@ -106,5 +106,5 @@ if (isset($_POST['logout'])) {
     $sql = "UPDATE users SET online_status = '0' WHERE id = '$id'";
     mysqli_query($con, $sql);
     session_unset();
-    header('location:regrps.php');
+    header('location:index.php');
 }

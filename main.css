@@ -61,6 +61,12 @@
     height: 400px;
     width: 49%;
 
+}.containers{
+    padding: 10px;
+    overflow-y: scroll;
+    height: 400px;
+    width: 80%;
+
 }
 .actform{
 display: flex;
@@ -93,6 +99,9 @@ cursor: pointer;
     background-color: crimson;
     color: white;
     font-weight: bolder;
+}
+.debug{
+    border: solid red 4px;
 }
 
 .container>a>button{
