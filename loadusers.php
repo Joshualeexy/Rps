@@ -1,31 +1,50 @@
 <?php
+//Starting the session
 session_start();
+
+//Including the connection file
 include 'conn.php';
+
+//If the user sends a game request
 if (isset($_POST['sendreq'])) {
+    //Fetching the data from the form
     $receiver = htmlspecialchars($_POST['receiver']);
     $sender = htmlspecialchars($_SESSION['id']);
+
+    //Fetching the current date
     $date = date('y-m-d');
+
+    //Query to get the details of the receiver
     $sql = "SELECT * FROM users WHERE id = '$receiver'";
     $result = mysqli_query($con, $sql);
     $receiver_array = mysqli_fetch_assoc($result);
 
+    //Query to get the details of the sender
     $sql = "SELECT * FROM users WHERE id = '$sender'";
     $result = mysqli_query($con, $sql);
     $sender_array = mysqli_fetch_assoc($result);
 
+    //Inserting the game request details into the database
     $sql = "INSERT INTO gamreq (sender,receiver,status,date) VALUES('$sender', '$receiver','pending', '$date' )";
     $result = mysqli_query($con, $sql);
 
     /*************************send game request email to receiver************************/
+    //Email configuration
     $from = $siteEmailforgamerequest;
     $fromName = $sitenameforgamerequest;
     $to = $receiver_array['email'];
     $subject = 'New Game Request';
-    $headers;
+    $headers = "";
     $msg = "";
 }
+
+//Fetching the id of the user who is currently logged in
 $id = $_SESSION['id'];
+
+//Fetching the details of the sender
 $sender = htmlspecialchars($_SESSION['id']);
+
+//Fetching the list of users excluding the current user
 $sql = "SELECT * FROM users WHERE id != '$id'";
 $result = mysqli_query($con, $sql);
 ?>
