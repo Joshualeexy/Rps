@@ -1,0 +1,130 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    
+}
+    .resultdivv {
+        display: flex;
+        justify-content: spa;
+        align-items: flex-start;
+        flex-direction: column;
+        color: white;
+        width: 100%;
+        padding: 20px;
+        background-color: skyblue;
+    }
+        .choice {
+      width: 100%;
+      color: white;
+        display: flex;
+      background-color: transparent;
+      border: none;
+      font-weight: bolder;
+      justify-content: flex-start;
+      text-transform: uppercase;
+      background-color: crimson;
+      margin-bottom: 20px;
+      align-items: center;
+      padding: 10px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-style: italic;
+    }     
+    
+    .choicee {
+      width: 100%;
+      color: white;
+        display: flex;
+      background-color: transparent;
+      border: none;
+      font-weight: bolder;
+      justify-content: flex-start;
+      text-transform: uppercase;
+      background-color: crimson;
+      margin-bottom: 20px;
+      align-items: center;
+      padding: 10px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-style: italic;
+    }
+.resultdivv>section{
+     display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.container{
+    padding: 10px;
+    overflow-y: scroll;
+    height: 400px;
+    width: 49%;
+
+}
+.actform{
+display: flex;
+gap: 20px;
+}.actform>button{
+width: 50%;
+padding: 10px;
+border: none;
+outline: none;
+background-color: green;
+color: white;
+font-weight: bolder;
+border-radius: 5px;
+cursor: pointer;
+}
+.container>a{
+    text-decoration: none;
+}
+.container>h2{
+    text-align: center;
+}
+.resultdivv>form>input{
+    padding: 10px 20px;
+    border: none ;
+    outline: none;
+}.resultdivv>form>button{
+    padding: 10px 20px;
+    border: none ;
+    outline: none;
+    background-color: crimson;
+    color: white;
+    font-weight: bolder;
+}
+
+.container>a>button{
+    display: flex;
+    justify-content: space-between;
+    width: 75%;
+}.container>a{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}.container>a>form{
+    width: 20%;
+}
+.container>div>button,.ert{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 5px;
+}
+.actform>button:last-child{
+
+background-color: red;
+
+}
+@media (width<600px) {
+    .resultdivv>section{
+     display: flex;
+    justify-content: space-between;
+
+    flex-direction: column;
+}
+.container{
+width: 100%;
+margin-bottom: 50px;}
+}
